@@ -15,16 +15,13 @@ import statistics
 
 app = Flask(__name__)
 
-# --------------------------------
-# Base Template with Navigation
-# --------------------------------
 base_template = """
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Jameson's Calculator</title>
+    <title>Jameson's Calculator</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     {% raw %}
     <style>
@@ -43,34 +40,32 @@ base_template = """
     {% endraw %}
   </head>
   <body>
-    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
       <div class="container-fluid">
-<a class="navbar-brand" href="{{ url_for('index') }}">Jameson's Personal Calculator</a>
+        <a class="navbar-brand" href="{{ url_for('index') }}">Jameson's Personal Calculator</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-<ul class="navbar-nav">
-    <li class="nav-item"><a class="nav-link active" href="{{ url_for('arithmetic') }}">Arithmetic</a></li>
-    <li class="nav-item"><a class="nav-link active" href="{{ url_for('algebra') }}">Algebra</a></li>
-    <li class="nav-item"><a class="nav-link active" href="{{ url_for('geometry') }}">Geometry</a></li>
-    <li class="nav-item"><a class="nav-link active" href="{{ url_for('trigonometry') }}">Trigonometry</a></li>
-    <li class="nav-item"><a class="nav-link active" href="{{ url_for('statistics') }}">Statistics/Probability</a></li>
-    <li class="nav-item"><a class="nav-link active" href="{{ url_for('calculus') }}">Calculus</a></li>
-    <li class="nav-item"><a class="nav-link active" href="{{ url_for('financial') }}">Financial Math</a></li>
-    <li class="nav-item"><a class="nav-link active" href="{{ url_for('conversions') }}">Unit Conversions</a></li>
-</ul>
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link active" href="{{ url_for('arithmetic') }}">Arithmetic</a></li>
+            <li class="nav-item"><a class="nav-link active" href="{{ url_for('algebra') }}">Algebra</a></li>
+            <li class="nav-item"><a class="nav-link active" href="{{ url_for('geometry') }}">Geometry</a></li>
+            <li class="nav-item"><a class="nav-link active" href="{{ url_for('trigonometry') }}">Trigonometry</a></li>
+            <li class="nav-item"><a class="nav-link active" href="{{ url_for('statistics') }}">Statistics/Probability</a></li>
+            <li class="nav-item"><a class="nav-link active" href="{{ url_for('calculus') }}">Calculus</a></li>
+            <li class="nav-item"><a class="nav-link active" href="{{ url_for('financial') }}">Financial Math</a></li>
+            <li class="nav-item"><a class="nav-link active" href="{{ url_for('conversions') }}">Unit Conversions</a></li>
+          </ul>
         </div>
       </div>
     </nav>
-    <!-- Main Content -->
     <div class="container">
       {{ content|safe }}
     </div>
     <footer>
-      &copy; 2025 jameson personal Calculator
+      &copy; 2025 Jameson Personal Calculator
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
@@ -94,6 +89,7 @@ def index():
     </div>
     """
     return render_page(content)
+
 
 # ===================================
 # 1. Arithmetic Routes
@@ -1815,5 +1811,4 @@ def conv_weight():
 # ---------------------------
 # Run the App
 # ---------------------------
-if __name__ == '__main__':
-    app.run(debug=True)
+application = app
